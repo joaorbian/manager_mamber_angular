@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'manager_mamber_angular';
+
+  mode: string = ''
+  readonly apiURL: string = ''
+
+  constructor(private http: HttpClient) {
+
+    this.apiURL == 'http://localhost:3200';
+
+  }
+
+  ngOnInit(): void {
+    this.mode = 'register'
+  }
+
+  viewMode(mode: string) {
+    this.mode = mode
+  }
+
+  login() {
+    this.http.get(`http://localhost:3200/user/1/members`).subscribe(resultado => console.log(resultado));
+  }
+
 }
