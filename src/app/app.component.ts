@@ -10,6 +10,7 @@ export class AppComponent {
 
   mode: string = ''
   readonly apiURL: string = ''
+  value: string = ''
 
   constructor(private http: HttpClient) {
 
@@ -23,6 +24,10 @@ export class AppComponent {
 
   viewMode(mode: string) {
     this.mode = mode
+  }
+
+  getData(event: any) {
+
   }
 
   login() {
